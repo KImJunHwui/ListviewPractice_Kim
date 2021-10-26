@@ -32,7 +32,12 @@ class StudentAdaptor(
         val birthYearTxt = row.findViewById<TextView>(R.id.birthYearTxt)
 
         nameTxt.text = studentData.name
-        birthYearTxt.text = "(${studentData.birthYear}년생)"
+
+//        출생연도를 가지고 -> 2021년식 한국 나이로 보여주기.
+        val koreanAge = 2021 - studentData.birthYear + 1
+
+
+        birthYearTxt.text = "(${koreanAge}세)"
 
 
         return row
