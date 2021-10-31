@@ -22,11 +22,12 @@ class StudentAdaptor(
         if (tempRow == null){
 
             tempRow = inf.inflate(R.layout.student_list_item, null)
-        }
 
+        }
         val row = tempRow!!
 
         val studentData = mlist[position]
+
 
         val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
         val birthYearTxt = row.findViewById<TextView>(R.id.birthYearTxt)
@@ -34,10 +35,8 @@ class StudentAdaptor(
         nameTxt.text = studentData.name
 
 //        출생연도를 가지고 -> 2021년식 한국 나이로 보여주기.
-        val koreanAge = 2021 - studentData.birthYear + 1
 
-
-        birthYearTxt.text = "(${koreanAge}세)"
+        birthYearTxt.text = "(${studentData.getMyAgeIn2021()}세)"
 
 
         return row
